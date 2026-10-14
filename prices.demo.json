@@ -1,0 +1,1047 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "currency": "RUB",
+    "unitOfMoney": "копейки, целые числа",
+    "label": "демонстрационные цены",
+    "dataSource": "цены ориентировочные, составлены по общему представлению о розничных ценах, без источника и без привязки к дате и региону. В интерфейсе подписывать как «демонстрационные»",
+    "models": {
+      "fixed": "priceKopecks за упаковку packSizeG",
+      "weight": "priceKopecksPerKg за килограмм, платится фактический вес",
+      "per_piece": "priceKopecks за штуку, вес штуки gramsPerPiece"
+    },
+    "formulas": {
+      "menuCost": "«по меню»: пропорционально нужному количеству. fixed: need*priceKopecks/packSizeG, weight: need*priceKopecksPerKg/1000, per_piece: need/gramsPerPiece*priceKopecks",
+      "receiptCost": "«в чеке»: считается от toCover = max(0, need - остаток в кладовке). fixed: ceil(toCover/packSizeG)*priceKopecks, weight: toCover*priceKopecksPerKg/1000, per_piece: ceil(toCover/gramsPerPiece)*priceKopecks",
+      "rounding": "каждая строка округляется до целой копейки (0,5 вверх), итог равен сумме округлённых строк"
+    },
+    "storeRule": "цена не зависит от магазина, магазин влияет только на группировку списка покупок. storeId это магазин по умолчанию"
+  },
+  "stores": [
+    {
+      "id": "store_pyaterochka",
+      "title": "Пятёрочка"
+    },
+    {
+      "id": "store_vkusvill",
+      "title": "ВкусВилл"
+    },
+    {
+      "id": "store_market",
+      "title": "Рынок"
+    }
+  ],
+  "defaultStoreId": "store_pyaterochka",
+  "weeklyBudgetKopecks": 400000,
+  "prices": [
+    {
+      "productId": "prod_buckwheat",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 11000,
+      "packSizeG": 800,
+      "packLabel": "800 г"
+    },
+    {
+      "productId": "prod_rice_white",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 9500,
+      "packSizeG": 900,
+      "packLabel": "900 г"
+    },
+    {
+      "productId": "prod_oat_flakes",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 7500,
+      "packSizeG": 500,
+      "packLabel": "500 г"
+    },
+    {
+      "productId": "prod_pasta_durum",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 7000,
+      "packSizeG": 450,
+      "packLabel": "450 г"
+    },
+    {
+      "productId": "prod_lentil_red",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 12000,
+      "packSizeG": 500,
+      "packLabel": "500 г"
+    },
+    {
+      "productId": "prod_chickpeas",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 13000,
+      "packSizeG": 500,
+      "packLabel": "500 г"
+    },
+    {
+      "productId": "prod_beans_white",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 12000,
+      "packSizeG": 500,
+      "packLabel": "500 г"
+    },
+    {
+      "productId": "prod_flour_wheat",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 7000,
+      "packSizeG": 1000,
+      "packLabel": "1 кг"
+    },
+    {
+      "productId": "prod_sugar",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 8000,
+      "packSizeG": 1000,
+      "packLabel": "1 кг"
+    },
+    {
+      "productId": "prod_honey",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 25000,
+      "packSizeG": 250,
+      "packLabel": "250 г"
+    },
+    {
+      "productId": "prod_bread_wheat",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 6000,
+      "packSizeG": 400,
+      "packLabel": "400 г"
+    },
+    {
+      "productId": "prod_bread_rye",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 6500,
+      "packSizeG": 400,
+      "packLabel": "400 г"
+    },
+    {
+      "productId": "prod_chicken_breast",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 45000,
+      "packSizeG": 900,
+      "packLabel": "900 г"
+    },
+    {
+      "productId": "prod_turkey_fillet",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 80000,
+      "packSizeG": 800,
+      "packLabel": "800 г"
+    },
+    {
+      "productId": "prod_beef_lean",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 45000,
+      "packSizeG": 500,
+      "packLabel": "500 г"
+    },
+    {
+      "productId": "prod_salmon",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 72000,
+      "packSizeG": 400,
+      "packLabel": "400 г"
+    },
+    {
+      "productId": "prod_cod",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 33000,
+      "packSizeG": 500,
+      "packLabel": "500 г"
+    },
+    {
+      "productId": "prod_pollock",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 20000,
+      "packSizeG": 500,
+      "packLabel": "500 г"
+    },
+    {
+      "productId": "prod_tuna_canned",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 14000,
+      "packSizeG": 185,
+      "packLabel": "185 г"
+    },
+    {
+      "productId": "prod_egg",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 11000,
+      "packSizeG": 500,
+      "packLabel": "10 шт"
+    },
+    {
+      "productId": "prod_milk_25",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 9000,
+      "packSizeG": 930,
+      "packLabel": "0,9 л"
+    },
+    {
+      "productId": "prod_kefir_1",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 8500,
+      "packSizeG": 930,
+      "packLabel": "0,9 л"
+    },
+    {
+      "productId": "prod_kefir_25",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 9000,
+      "packSizeG": 930,
+      "packLabel": "0,9 л"
+    },
+    {
+      "productId": "prod_tvorog_5",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 9000,
+      "packSizeG": 200,
+      "packLabel": "200 г"
+    },
+    {
+      "productId": "prod_tvorog_9",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 9500,
+      "packSizeG": 200,
+      "packLabel": "200 г"
+    },
+    {
+      "productId": "prod_yogurt_natural_32",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 9000,
+      "packSizeG": 350,
+      "packLabel": "350 г"
+    },
+    {
+      "productId": "prod_cheese_hard",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 22000,
+      "packSizeG": 200,
+      "packLabel": "200 г"
+    },
+    {
+      "productId": "prod_sour_cream_15",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 10000,
+      "packSizeG": 300,
+      "packLabel": "300 г"
+    },
+    {
+      "productId": "prod_butter_825",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 22000,
+      "packSizeG": 180,
+      "packLabel": "180 г"
+    },
+    {
+      "productId": "prod_oil_sunflower",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 16000,
+      "packSizeG": 920,
+      "packLabel": "1 л"
+    },
+    {
+      "productId": "prod_oil_olive",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 60000,
+      "packSizeG": 460,
+      "packLabel": "0,5 л"
+    },
+    {
+      "productId": "prod_potato",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 4500
+    },
+    {
+      "productId": "prod_carrot",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 4500
+    },
+    {
+      "productId": "prod_onion",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 4000
+    },
+    {
+      "productId": "prod_cabbage_white",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 4000
+    },
+    {
+      "productId": "prod_tomato",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 25000
+    },
+    {
+      "productId": "prod_cucumber",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 18000
+    },
+    {
+      "productId": "prod_pepper_bell",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 30000
+    },
+    {
+      "productId": "prod_broccoli",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 35000
+    },
+    {
+      "productId": "prod_beet",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 4500
+    },
+    {
+      "productId": "prod_zucchini",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 12000
+    },
+    {
+      "productId": "prod_spinach",
+      "storeId": "store_market",
+      "model": "fixed",
+      "priceKopecks": 9000,
+      "packSizeG": 100,
+      "packLabel": "100 г"
+    },
+    {
+      "productId": "prod_garlic",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 40000
+    },
+    {
+      "productId": "prod_apple",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 13000
+    },
+    {
+      "productId": "prod_banana",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 11000
+    },
+    {
+      "productId": "prod_orange",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 15000
+    },
+    {
+      "productId": "prod_strawberry",
+      "storeId": "store_market",
+      "model": "fixed",
+      "priceKopecks": 25000,
+      "packSizeG": 250,
+      "packLabel": "250 г"
+    },
+    {
+      "productId": "prod_blueberry",
+      "storeId": "store_market",
+      "model": "fixed",
+      "priceKopecks": 25000,
+      "packSizeG": 125,
+      "packLabel": "125 г"
+    },
+    {
+      "productId": "prod_avocado",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 60000
+    },
+    {
+      "productId": "prod_walnut",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 15000,
+      "packSizeG": 100,
+      "packLabel": "100 г"
+    },
+    {
+      "productId": "prod_almond",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 28000,
+      "packSizeG": 150,
+      "packLabel": "150 г"
+    },
+    {
+      "productId": "prod_peanut",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 12000,
+      "packSizeG": 200,
+      "packLabel": "200 г"
+    },
+    {
+      "productId": "prod_hummus",
+      "storeId": "store_vkusvill",
+      "model": "fixed",
+      "priceKopecks": 18000,
+      "packSizeG": 200,
+      "packLabel": "200 г"
+    },
+    {
+      "productId": "prod_cauliflower",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 20000
+    },
+    {
+      "productId": "prod_eggplant",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 22000
+    },
+    {
+      "productId": "prod_pumpkin",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 7000
+    },
+    {
+      "productId": "prod_radish",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 25000
+    },
+    {
+      "productId": "prod_celery_stalk",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 25000
+    },
+    {
+      "productId": "prod_cabbage_chinese",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 10000
+    },
+    {
+      "productId": "prod_lettuce_iceberg",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 35000
+    },
+    {
+      "productId": "prod_peas_green",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 13000,
+      "packSizeG": 400,
+      "packLabel": "400 г"
+    },
+    {
+      "productId": "prod_mushroom_champignon",
+      "storeId": "store_market",
+      "model": "fixed",
+      "priceKopecks": 13000,
+      "packSizeG": 400,
+      "packLabel": "400 г"
+    },
+    {
+      "productId": "prod_dill",
+      "storeId": "store_market",
+      "model": "fixed",
+      "priceKopecks": 5000,
+      "packSizeG": 50,
+      "packLabel": "пучок 50 г"
+    },
+    {
+      "productId": "prod_parsley",
+      "storeId": "store_market",
+      "model": "fixed",
+      "priceKopecks": 5000,
+      "packSizeG": 50,
+      "packLabel": "пучок 50 г"
+    },
+    {
+      "productId": "prod_green_onion",
+      "storeId": "store_market",
+      "model": "fixed",
+      "priceKopecks": 5000,
+      "packSizeG": 50,
+      "packLabel": "пучок 50 г"
+    },
+    {
+      "productId": "prod_pear",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 22000
+    },
+    {
+      "productId": "prod_grapes",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 30000
+    },
+    {
+      "productId": "prod_mandarin",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 15000
+    },
+    {
+      "productId": "prod_kiwi",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 30000
+    },
+    {
+      "productId": "prod_lemon",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 25000
+    },
+    {
+      "productId": "prod_peach",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 25000
+    },
+    {
+      "productId": "prod_plum",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 25000
+    },
+    {
+      "productId": "prod_pineapple",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 15000
+    },
+    {
+      "productId": "prod_grapefruit",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 20000
+    },
+    {
+      "productId": "prod_raspberry",
+      "storeId": "store_market",
+      "model": "fixed",
+      "priceKopecks": 28000,
+      "packSizeG": 125,
+      "packLabel": "125 г"
+    },
+    {
+      "productId": "prod_watermelon",
+      "storeId": "store_market",
+      "model": "weight",
+      "priceKopecksPerKg": 6000
+    },
+    {
+      "productId": "prod_baton",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 6000,
+      "packSizeG": 400,
+      "packLabel": "400 г"
+    },
+    {
+      "productId": "prod_lavash",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 5000,
+      "packSizeG": 200,
+      "packLabel": "200 г"
+    },
+    {
+      "productId": "prod_croissant",
+      "storeId": "store_pyaterochka",
+      "model": "per_piece",
+      "priceKopecks": 6000,
+      "gramsPerPiece": 60
+    },
+    {
+      "productId": "prod_cookie_sugar",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 9000,
+      "packSizeG": 300,
+      "packLabel": "300 г"
+    },
+    {
+      "productId": "prod_cookie_oat",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 11000,
+      "packSizeG": 300,
+      "packLabel": "300 г"
+    },
+    {
+      "productId": "prod_sushki",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 8000,
+      "packSizeG": 300,
+      "packLabel": "300 г"
+    },
+    {
+      "productId": "prod_chocolate_milk",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 11000,
+      "packSizeG": 90,
+      "packLabel": "плитка 90 г"
+    },
+    {
+      "productId": "prod_chocolate_dark",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 14000,
+      "packSizeG": 90,
+      "packLabel": "плитка 90 г"
+    },
+    {
+      "productId": "prod_candy_chocolate",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 25000,
+      "packSizeG": 200,
+      "packLabel": "коробка 200 г"
+    },
+    {
+      "productId": "prod_zefir",
+      "storeId": "store_pyaterochka",
+      "model": "fixed",
+      "priceKopecks": 18000,
+      "packSizeG": 250,
+      "packLabel": "250 г"
+    }
+  ],
+  "expected": {
+    "recipeMenuCost": {
+      "rec_oatmeal_banana": {
+        "totalKopecks": 4345,
+        "perServingKopecks": 4345
+      },
+      "rec_omelet_tomato_cheese": {
+        "totalKopecks": 8071,
+        "perServingKopecks": 8071
+      },
+      "rec_syrniki": {
+        "totalKopecks": 19801,
+        "perServingKopecks": 9901
+      },
+      "rec_oladyi_kefir": {
+        "totalKopecks": 5077,
+        "perServingKopecks": 1692
+      },
+      "rec_salad_fresh_veg": {
+        "totalKopecks": 13408,
+        "perServingKopecks": 6704
+      },
+      "rec_salad_cabbage_carrot": {
+        "totalKopecks": 1911,
+        "perServingKopecks": 956
+      },
+      "rec_vinaigrette": {
+        "totalKopecks": 3298,
+        "perServingKopecks": 1099
+      },
+      "rec_salad_tuna_egg": {
+        "totalKopecks": 22704,
+        "perServingKopecks": 11352
+      },
+      "rec_soup_chicken_noodle": {
+        "totalKopecks": 18227,
+        "perServingKopecks": 4557
+      },
+      "rec_borscht": {
+        "totalKopecks": 36148,
+        "perServingKopecks": 9037
+      },
+      "rec_soup_lentil": {
+        "totalKopecks": 7298,
+        "perServingKopecks": 1825
+      },
+      "rec_plov_chicken": {
+        "totalKopecks": 31388,
+        "perServingKopecks": 7847
+      },
+      "rec_chicken_buckwheat": {
+        "totalKopecks": 23948,
+        "perServingKopecks": 5987
+      },
+      "rec_pasta_tuna_tomato": {
+        "totalKopecks": 28562,
+        "perServingKopecks": 9521
+      },
+      "rec_salmon_potato_broccoli": {
+        "totalKopecks": 96157,
+        "perServingKopecks": 32052
+      },
+      "rec_beef_stew_potato": {
+        "totalKopecks": 52648,
+        "perServingKopecks": 13162
+      },
+      "rec_veg_ragout_beans": {
+        "totalKopecks": 24785,
+        "perServingKopecks": 6196
+      },
+      "rec_turkey_meatballs_tomato": {
+        "totalKopecks": 57314,
+        "perServingKopecks": 14329
+      },
+      "rec_side_buckwheat": {
+        "totalKopecks": 1711,
+        "perServingKopecks": 1711
+      },
+      "rec_side_rice": {
+        "totalKopecks": 1350,
+        "perServingKopecks": 1350
+      },
+      "rec_side_mashed_potato": {
+        "totalKopecks": 3764,
+        "perServingKopecks": 1882
+      },
+      "rec_snack_tvorog_blueberry": {
+        "totalKopecks": 19750,
+        "perServingKopecks": 19750
+      },
+      "rec_snack_yogurt_apple_walnut": {
+        "totalKopecks": 7407,
+        "perServingKopecks": 7407
+      },
+      "rec_snack_carrot_hummus": {
+        "totalKopecks": 5940,
+        "perServingKopecks": 5940
+      },
+      "rec_snack_avocado_toast": {
+        "totalKopecks": 5450,
+        "perServingKopecks": 5450
+      },
+      "rec_dessert_baked_apple_tvorog": {
+        "totalKopecks": 11180,
+        "perServingKopecks": 5590
+      },
+      "rec_dessert_tvorog_casserole": {
+        "totalKopecks": 28189,
+        "perServingKopecks": 7047
+      },
+      "rec_breakfast_toast_chocolate_banana": {
+        "totalKopecks": 3743,
+        "perServingKopecks": 3743
+      },
+      "rec_snack_croissant_cheese": {
+        "totalKopecks": 8200,
+        "perServingKopecks": 8200
+      },
+      "rec_snack_tvorog_zefir": {
+        "totalKopecks": 8910,
+        "perServingKopecks": 8910
+      },
+      "rec_snack_oat_cookie_milk": {
+        "totalKopecks": 3402,
+        "perServingKopecks": 3402
+      },
+      "rec_main_lavash_chicken_roll": {
+        "totalKopecks": 12134,
+        "perServingKopecks": 12134
+      }
+    },
+    "examples": [
+      {
+        "case": "fixed: 700 г курицы при упаковке 900 г",
+        "menuKopecks": 35000,
+        "receiptKopecks": 45000
+      },
+      {
+        "case": "per_piece: 3 круассана (180 г)",
+        "menuKopecks": 18000,
+        "receiptKopecks": 18000
+      },
+      {
+        "case": "weight: 230 г помидоров",
+        "menuKopecks": 5750,
+        "receiptKopecks": 5750
+      },
+      {
+        "case": "остаток покрывает потребность: 50 г гречки при 500 г в кладовке",
+        "menuKopecks": 688,
+        "receiptKopecks": 0
+      }
+    ],
+    "demoWeek": {
+      "description": "демо-план: Пн овсяная каша с бананом и курица с гречкой, Вт омлет и салат из свежих овощей, Пт черника 100 г, по 1 порции",
+      "needG": {
+        "prod_oat_flakes": 50.0,
+        "prod_milk_25": 250.0,
+        "prod_banana": 60.0,
+        "prod_honey": 10.0,
+        "prod_buckwheat": 50.0,
+        "prod_chicken_breast": 100.0,
+        "prod_onion": 45.0,
+        "prod_carrot": 25.0,
+        "prod_oil_sunflower": 20.0,
+        "prod_egg": 150.0,
+        "prod_tomato": 230.0,
+        "prod_cheese_hard": 20.0,
+        "prod_cucumber": 150.0,
+        "prod_blueberry": 100
+      },
+      "pantryDemo": {
+        "prod_oat_flakes": 300,
+        "prod_buckwheat": 500,
+        "prod_egg": 300
+      },
+      "noPantry": {
+        "menuKopecks": 45108,
+        "receiptKopecks": 180903,
+        "lines": [
+          {
+            "productId": "prod_banana",
+            "needG": 60.0,
+            "toCoverG": 60.0,
+            "menuKopecks": 660,
+            "receiptKopecks": 660
+          },
+          {
+            "productId": "prod_blueberry",
+            "needG": 100,
+            "toCoverG": 100,
+            "menuKopecks": 20000,
+            "receiptKopecks": 25000
+          },
+          {
+            "productId": "prod_buckwheat",
+            "needG": 50.0,
+            "toCoverG": 50.0,
+            "menuKopecks": 688,
+            "receiptKopecks": 11000
+          },
+          {
+            "productId": "prod_carrot",
+            "needG": 25.0,
+            "toCoverG": 25.0,
+            "menuKopecks": 113,
+            "receiptKopecks": 113
+          },
+          {
+            "productId": "prod_cheese_hard",
+            "needG": 20.0,
+            "toCoverG": 20.0,
+            "menuKopecks": 2200,
+            "receiptKopecks": 22000
+          },
+          {
+            "productId": "prod_chicken_breast",
+            "needG": 100.0,
+            "toCoverG": 100.0,
+            "menuKopecks": 5000,
+            "receiptKopecks": 45000
+          },
+          {
+            "productId": "prod_cucumber",
+            "needG": 150.0,
+            "toCoverG": 150.0,
+            "menuKopecks": 2700,
+            "receiptKopecks": 2700
+          },
+          {
+            "productId": "prod_egg",
+            "needG": 150.0,
+            "toCoverG": 150.0,
+            "menuKopecks": 3300,
+            "receiptKopecks": 11000
+          },
+          {
+            "productId": "prod_honey",
+            "needG": 10.0,
+            "toCoverG": 10.0,
+            "menuKopecks": 1000,
+            "receiptKopecks": 25000
+          },
+          {
+            "productId": "prod_milk_25",
+            "needG": 250.0,
+            "toCoverG": 250.0,
+            "menuKopecks": 2419,
+            "receiptKopecks": 9000
+          },
+          {
+            "productId": "prod_oat_flakes",
+            "needG": 50.0,
+            "toCoverG": 50.0,
+            "menuKopecks": 750,
+            "receiptKopecks": 7500
+          },
+          {
+            "productId": "prod_oil_sunflower",
+            "needG": 20.0,
+            "toCoverG": 20.0,
+            "menuKopecks": 348,
+            "receiptKopecks": 16000
+          },
+          {
+            "productId": "prod_onion",
+            "needG": 45.0,
+            "toCoverG": 45.0,
+            "menuKopecks": 180,
+            "receiptKopecks": 180
+          },
+          {
+            "productId": "prod_tomato",
+            "needG": 230.0,
+            "toCoverG": 230.0,
+            "menuKopecks": 5750,
+            "receiptKopecks": 5750
+          }
+        ]
+      },
+      "withPantry": {
+        "menuKopecks": 45108,
+        "receiptKopecks": 151403,
+        "lines": [
+          {
+            "productId": "prod_banana",
+            "needG": 60.0,
+            "toCoverG": 60.0,
+            "menuKopecks": 660,
+            "receiptKopecks": 660
+          },
+          {
+            "productId": "prod_blueberry",
+            "needG": 100,
+            "toCoverG": 100,
+            "menuKopecks": 20000,
+            "receiptKopecks": 25000
+          },
+          {
+            "productId": "prod_buckwheat",
+            "needG": 50.0,
+            "toCoverG": 0,
+            "menuKopecks": 688,
+            "receiptKopecks": 0
+          },
+          {
+            "productId": "prod_carrot",
+            "needG": 25.0,
+            "toCoverG": 25.0,
+            "menuKopecks": 113,
+            "receiptKopecks": 113
+          },
+          {
+            "productId": "prod_cheese_hard",
+            "needG": 20.0,
+            "toCoverG": 20.0,
+            "menuKopecks": 2200,
+            "receiptKopecks": 22000
+          },
+          {
+            "productId": "prod_chicken_breast",
+            "needG": 100.0,
+            "toCoverG": 100.0,
+            "menuKopecks": 5000,
+            "receiptKopecks": 45000
+          },
+          {
+            "productId": "prod_cucumber",
+            "needG": 150.0,
+            "toCoverG": 150.0,
+            "menuKopecks": 2700,
+            "receiptKopecks": 2700
+          },
+          {
+            "productId": "prod_egg",
+            "needG": 150.0,
+            "toCoverG": 0,
+            "menuKopecks": 3300,
+            "receiptKopecks": 0
+          },
+          {
+            "productId": "prod_honey",
+            "needG": 10.0,
+            "toCoverG": 10.0,
+            "menuKopecks": 1000,
+            "receiptKopecks": 25000
+          },
+          {
+            "productId": "prod_milk_25",
+            "needG": 250.0,
+            "toCoverG": 250.0,
+            "menuKopecks": 2419,
+            "receiptKopecks": 9000
+          },
+          {
+            "productId": "prod_oat_flakes",
+            "needG": 50.0,
+            "toCoverG": 0,
+            "menuKopecks": 750,
+            "receiptKopecks": 0
+          },
+          {
+            "productId": "prod_oil_sunflower",
+            "needG": 20.0,
+            "toCoverG": 20.0,
+            "menuKopecks": 348,
+            "receiptKopecks": 16000
+          },
+          {
+            "productId": "prod_onion",
+            "needG": 45.0,
+            "toCoverG": 45.0,
+            "menuKopecks": 180,
+            "receiptKopecks": 180
+          },
+          {
+            "productId": "prod_tomato",
+            "needG": 230.0,
+            "toCoverG": 230.0,
+            "menuKopecks": 5750,
+            "receiptKopecks": 5750
+          }
+        ]
+      }
+    }
+  }
+}

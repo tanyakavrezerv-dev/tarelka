@@ -1,0 +1,7 @@
+.tools/
+node_modules/
+backups/
+*.log
+tarelka-backup*.json
+.DS_Store
+Thumbs.db

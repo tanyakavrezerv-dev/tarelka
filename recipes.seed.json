@@ -1,0 +1,1886 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "description": "Стартовые рецепты для учебного MVP «Тарелка». Все productId есть в products.seed.json",
+    "courseLegend": {
+      "breakfast": "Завтрак",
+      "starter": "Закуска или салат",
+      "soup": "Суп",
+      "main": "Второе блюдо",
+      "side": "Гарнир",
+      "snack": "Перекус",
+      "dessert": "Десерт"
+    },
+    "slotIds": [
+      "breakfast",
+      "snack_1",
+      "lunch",
+      "snack_2",
+      "dinner"
+    ],
+    "ingredientsRule": "граммы сырого или сухого продукта из products.seed.json, не готового. Яйцо 50 г = 1 шт",
+    "notCounted": "вода, соль, перец, специи, сода не входят в ингредиенты и в КБЖУ",
+    "oilRule": "масло для жарки считается полностью, часть остаётся на сковороде, поэтому КБЖУ немного завышен",
+    "servings": "количество порций, на которое рассчитан рецепт. Ингредиенты масштабируются линейно",
+    "cookedWeightG": "оценка веса готового блюда. Правила: мясо и рыба x0.75, овощи и фрукты x0.9 в супах и вторых блюдах, гречка x2.5, рис x2.7, макароны x2.3, чечевица x2.5, фасоль x2.3, вода в супах (addedWaterMl) x0.85, остальное x1.0. Это грубая оценка, она не заменяет взвешивание. Пользователь может переопределить",
+    "expected": "эталонные значения для автотестов, посчитаны скриптом из products.seed.json. Движок расчёта должен воспроизвести их с точностью до округления",
+    "mvpCore": "true у 12 рецептов, которых достаточно для демо-недели. Остальные можно подключить позже",
+    "dataSource": "состав и пропорции рецептов составлены по общему кулинарному знанию, не взяты из источника. Шаги краткие и не заменяют кулинарную книгу",
+    "courses": [
+      {
+        "id": "breakfast",
+        "title": "Завтраки"
+      },
+      {
+        "id": "starter",
+        "title": "Закуски и салаты"
+      },
+      {
+        "id": "soup",
+        "title": "Супы"
+      },
+      {
+        "id": "main",
+        "title": "Вторые блюда"
+      },
+      {
+        "id": "side",
+        "title": "Гарниры"
+      },
+      {
+        "id": "snack",
+        "title": "Перекусы"
+      },
+      {
+        "id": "dessert",
+        "title": "Десерты"
+      }
+    ],
+    "slotTitles": {
+      "breakfast": "Завтрак",
+      "snack_1": "Перекус 1",
+      "lunch": "Обед",
+      "snack_2": "Перекус 2",
+      "dinner": "Ужин"
+    },
+    "displayRule": "поле course и id слотов служебные, на экране показывать только courseTitle и meta.slotTitles. Порядок групп задаёт meta.courses"
+  },
+  "recipes": [
+    {
+      "id": "rec_oatmeal_banana",
+      "name": "Овсяная каша на молоке с бананом",
+      "course": "breakfast",
+      "mealSlots": [
+        "breakfast"
+      ],
+      "servings": 1,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_oat_flakes",
+          "grams": 50
+        },
+        {
+          "productId": "prod_milk_25",
+          "grams": 200
+        },
+        {
+          "productId": "prod_banana",
+          "grams": 60
+        },
+        {
+          "productId": "prod_honey",
+          "grams": 10
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 320,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Залить хлопья молоком и варить 5-7 минут, помешивая",
+        "Добавить нарезанный банан и мёд"
+      ],
+      "expected": {
+        "totalKcal": 368,
+        "perServing": {
+          "kcal": 368,
+          "protein": 12.5,
+          "fat": 8.3,
+          "carbs": 62.9,
+          "fiber": 6.1
+        },
+        "per100gCooked": {
+          "kcal": 115,
+          "protein": 3.9,
+          "fat": 2.6,
+          "carbs": 19.7,
+          "fiber": 1.9
+        },
+        "servingWeightG": 320
+      },
+      "courseTitle": "Завтраки"
+    },
+    {
+      "id": "rec_omelet_tomato_cheese",
+      "name": "Омлет с помидором и сыром",
+      "course": "breakfast",
+      "mealSlots": [
+        "breakfast"
+      ],
+      "servings": 1,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_egg",
+          "grams": 150
+        },
+        {
+          "productId": "prod_milk_25",
+          "grams": 50
+        },
+        {
+          "productId": "prod_tomato",
+          "grams": 80
+        },
+        {
+          "productId": "prod_cheese_hard",
+          "grams": 20
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 5
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 305,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Взбить яйца с молоком",
+        "Обжарить нарезанный помидор на масле 1-2 минуты",
+        "Залить яйцами, посыпать тёртым сыром, готовить под крышкой на слабом огне"
+      ],
+      "expected": {
+        "totalKcal": 392,
+        "perServing": {
+          "kcal": 392,
+          "protein": 26.1,
+          "fat": 28.5,
+          "carbs": 6.5,
+          "fiber": 1.0
+        },
+        "per100gCooked": {
+          "kcal": 128,
+          "protein": 8.5,
+          "fat": 9.3,
+          "carbs": 2.1,
+          "fiber": 0.3
+        },
+        "servingWeightG": 305
+      },
+      "courseTitle": "Завтраки"
+    },
+    {
+      "id": "rec_syrniki",
+      "name": "Сырники",
+      "course": "breakfast",
+      "mealSlots": [
+        "breakfast"
+      ],
+      "servings": 2,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_tvorog_5",
+          "grams": 400
+        },
+        {
+          "productId": "prod_egg",
+          "grams": 50
+        },
+        {
+          "productId": "prod_flour_wheat",
+          "grams": 40
+        },
+        {
+          "productId": "prod_sugar",
+          "grams": 20
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 15
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 525,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Смешать творог, яйцо, муку и сахар",
+        "Сформировать небольшие лепёшки",
+        "Обжарить на масле с двух сторон до золотистой корочки"
+      ],
+      "expected": {
+        "totalKcal": 910,
+        "perServing": {
+          "kcal": 455,
+          "protein": 39.3,
+          "fat": 20.5,
+          "carbs": 27.8,
+          "fiber": 0.6
+        },
+        "per100gCooked": {
+          "kcal": 173,
+          "protein": 15.0,
+          "fat": 7.8,
+          "carbs": 10.6,
+          "fiber": 0.2
+        },
+        "servingWeightG": 262
+      },
+      "courseTitle": "Завтраки"
+    },
+    {
+      "id": "rec_oladyi_kefir",
+      "name": "Оладьи на кефире",
+      "course": "breakfast",
+      "mealSlots": [
+        "breakfast"
+      ],
+      "servings": 3,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_kefir_25",
+          "grams": 250
+        },
+        {
+          "productId": "prod_egg",
+          "grams": 50
+        },
+        {
+          "productId": "prod_flour_wheat",
+          "grams": 150
+        },
+        {
+          "productId": "prod_sugar",
+          "grams": 20
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 20
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 490,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Смешать кефир, яйцо, сахар и муку до густого теста",
+        "Жарить небольшими порциями на масле с двух сторон"
+      ],
+      "expected": {
+        "totalKcal": 970,
+        "perServing": {
+          "kcal": 324,
+          "protein": 9.8,
+          "fat": 11.1,
+          "carbs": 45.1,
+          "fiber": 1.5
+        },
+        "per100gCooked": {
+          "kcal": 198,
+          "protein": 6.0,
+          "fat": 6.8,
+          "carbs": 27.6,
+          "fiber": 0.9
+        },
+        "servingWeightG": 163
+      },
+      "courseTitle": "Завтраки"
+    },
+    {
+      "id": "rec_salad_fresh_veg",
+      "name": "Салат из свежих овощей",
+      "course": "starter",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 2,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_cucumber",
+          "grams": 300
+        },
+        {
+          "productId": "prod_tomato",
+          "grams": 300
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 40
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 20
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 660,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Нарезать овощи",
+        "Заправить маслом"
+      ],
+      "expected": {
+        "totalKcal": 302,
+        "perServing": {
+          "kcal": 151,
+          "protein": 3.0,
+          "fat": 10.5,
+          "carbs": 11.8,
+          "fiber": 3.2
+        },
+        "per100gCooked": {
+          "kcal": 46,
+          "protein": 0.9,
+          "fat": 3.2,
+          "carbs": 3.6,
+          "fiber": 1.0
+        },
+        "servingWeightG": 330
+      },
+      "courseTitle": "Закуски и салаты"
+    },
+    {
+      "id": "rec_salad_cabbage_carrot",
+      "name": "Салат из капусты и моркови",
+      "course": "starter",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 2,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_cabbage_white",
+          "grams": 300
+        },
+        {
+          "productId": "prod_carrot",
+          "grams": 100
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 15
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 415,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Тонко нашинковать капусту, посолить и слегка размять",
+        "Добавить тёртую морковь и масло"
+      ],
+      "expected": {
+        "totalKcal": 251,
+        "perServing": {
+          "kcal": 126,
+          "protein": 3.4,
+          "fat": 7.7,
+          "carbs": 10.6,
+          "fiber": 4.2
+        },
+        "per100gCooked": {
+          "kcal": 60,
+          "protein": 1.6,
+          "fat": 3.7,
+          "carbs": 5.1,
+          "fiber": 2.0
+        },
+        "servingWeightG": 208
+      },
+      "courseTitle": "Закуски и салаты"
+    },
+    {
+      "id": "rec_vinaigrette",
+      "name": "Винегрет",
+      "course": "starter",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 3,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_beet",
+          "grams": 300
+        },
+        {
+          "productId": "prod_potato",
+          "grams": 200
+        },
+        {
+          "productId": "prod_carrot",
+          "grams": 120
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 40
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 20
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 680,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Отварить свёклу, картофель и морковь, остудить",
+        "Нарезать кубиками вместе с луком",
+        "Заправить маслом"
+      ],
+      "expected": {
+        "totalKcal": 522,
+        "perServing": {
+          "kcal": 174,
+          "protein": 3.6,
+          "fat": 7.2,
+          "carbs": 24.7,
+          "fiber": 5.4
+        },
+        "per100gCooked": {
+          "kcal": 77,
+          "protein": 1.6,
+          "fat": 3.2,
+          "carbs": 10.9,
+          "fiber": 2.4
+        },
+        "servingWeightG": 227
+      },
+      "courseTitle": "Закуски и салаты"
+    },
+    {
+      "id": "rec_salad_tuna_egg",
+      "name": "Салат с тунцом и яйцом",
+      "course": "starter",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 2,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_tuna_canned",
+          "grams": 185
+        },
+        {
+          "productId": "prod_egg",
+          "grams": 100
+        },
+        {
+          "productId": "prod_cucumber",
+          "grams": 150
+        },
+        {
+          "productId": "prod_tomato",
+          "grams": 100
+        },
+        {
+          "productId": "prod_oil_olive",
+          "grams": 10
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 545,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Сварить яйца вкрутую",
+        "Нарезать овощи и яйца, добавить тунец без жидкости",
+        "Заправить оливковым маслом"
+      ],
+      "expected": {
+        "totalKcal": 502,
+        "perServing": {
+          "kcal": 251,
+          "protein": 31.0,
+          "fat": 11.6,
+          "carbs": 4.3,
+          "fiber": 1.1
+        },
+        "per100gCooked": {
+          "kcal": 92,
+          "protein": 11.4,
+          "fat": 4.3,
+          "carbs": 1.6,
+          "fiber": 0.4
+        },
+        "servingWeightG": 272
+      },
+      "courseTitle": "Закуски и салаты"
+    },
+    {
+      "id": "rec_soup_chicken_noodle",
+      "name": "Куриный суп с вермишелью",
+      "course": "soup",
+      "mealSlots": [
+        "lunch"
+      ],
+      "servings": 4,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_chicken_breast",
+          "grams": 300
+        },
+        {
+          "productId": "prod_potato",
+          "grams": 300
+        },
+        {
+          "productId": "prod_carrot",
+          "grams": 100
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 80
+        },
+        {
+          "productId": "prod_pasta_durum",
+          "grams": 60
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 10
+        }
+      ],
+      "addedWaterMl": 1800,
+      "cookedWeightG": 2257,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Сварить курицу в воде, снять пену",
+        "Добавить картофель и морковь, через 10 минут лук, обжаренный на масле",
+        "Добавить вермишель и варить до готовности"
+      ],
+      "expected": {
+        "totalKcal": 951,
+        "perServing": {
+          "kcal": 238,
+          "protein": 21.6,
+          "fat": 4.6,
+          "carbs": 27.1,
+          "fiber": 3.0
+        },
+        "per100gCooked": {
+          "kcal": 42,
+          "protein": 3.8,
+          "fat": 0.8,
+          "carbs": 4.8,
+          "fiber": 0.5
+        },
+        "servingWeightG": 564
+      },
+      "courseTitle": "Супы"
+    },
+    {
+      "id": "rec_borscht",
+      "name": "Борщ со сметаной",
+      "course": "soup",
+      "mealSlots": [
+        "lunch"
+      ],
+      "servings": 4,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_beef_lean",
+          "grams": 300
+        },
+        {
+          "productId": "prod_beet",
+          "grams": 200
+        },
+        {
+          "productId": "prod_cabbage_white",
+          "grams": 300
+        },
+        {
+          "productId": "prod_potato",
+          "grams": 300
+        },
+        {
+          "productId": "prod_carrot",
+          "grams": 100
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 100
+        },
+        {
+          "productId": "prod_tomato",
+          "grams": 100
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 20
+        },
+        {
+          "productId": "prod_sour_cream_15",
+          "grams": 60
+        }
+      ],
+      "addedWaterMl": 2000,
+      "cookedWeightG": 2995,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Сварить говядину 1-1,5 часа",
+        "Добавить картофель и капусту",
+        "Обжарить свёклу, морковь, лук и помидор на масле, добавить в суп",
+        "Подавать со сметаной"
+      ],
+      "expected": {
+        "totalKcal": 1221,
+        "perServing": {
+          "kcal": 305,
+          "protein": 20.7,
+          "fat": 13.1,
+          "carbs": 26.2,
+          "fiber": 5.8
+        },
+        "per100gCooked": {
+          "kcal": 41,
+          "protein": 2.8,
+          "fat": 1.7,
+          "carbs": 3.5,
+          "fiber": 0.8
+        },
+        "servingWeightG": 749
+      },
+      "courseTitle": "Супы"
+    },
+    {
+      "id": "rec_soup_lentil",
+      "name": "Чечевичный суп",
+      "course": "soup",
+      "mealSlots": [
+        "lunch"
+      ],
+      "servings": 4,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_lentil_red",
+          "grams": 200
+        },
+        {
+          "productId": "prod_carrot",
+          "grams": 100
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 100
+        },
+        {
+          "productId": "prod_potato",
+          "grams": 200
+        },
+        {
+          "productId": "prod_garlic",
+          "grams": 10
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 20
+        }
+      ],
+      "addedWaterMl": 1500,
+      "cookedWeightG": 1864,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Обжарить лук, морковь и чеснок на масле",
+        "Добавить картофель, чечевицу и воду",
+        "Варить 20-25 минут до мягкости"
+      ],
+      "expected": {
+        "totalKcal": 1126,
+        "perServing": {
+          "kcal": 281,
+          "protein": 13.8,
+          "fat": 6.0,
+          "carbs": 43.2,
+          "fiber": 7.7
+        },
+        "per100gCooked": {
+          "kcal": 60,
+          "protein": 3.0,
+          "fat": 1.3,
+          "carbs": 9.3,
+          "fiber": 1.6
+        },
+        "servingWeightG": 466
+      },
+      "courseTitle": "Супы"
+    },
+    {
+      "id": "rec_plov_chicken",
+      "name": "Плов с курицей",
+      "course": "main",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 4,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_rice_white",
+          "grams": 300
+        },
+        {
+          "productId": "prod_chicken_breast",
+          "grams": 500
+        },
+        {
+          "productId": "prod_carrot",
+          "grams": 250
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 150
+        },
+        {
+          "productId": "prod_garlic",
+          "grams": 20
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 40
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 1603,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Обжарить кусочки курицы с луком и морковью на масле",
+        "Добавить промытый рис, чеснок и воду (рис:вода примерно 1:2)",
+        "Томить под крышкой на слабом огне до готовности риса"
+      ],
+      "expected": {
+        "totalKcal": 2165,
+        "perServing": {
+          "kcal": 541,
+          "protein": 36.3,
+          "fat": 13.2,
+          "carbs": 68.6,
+          "fiber": 3.3
+        },
+        "per100gCooked": {
+          "kcal": 135,
+          "protein": 9.1,
+          "fat": 3.3,
+          "carbs": 17.1,
+          "fiber": 0.8
+        },
+        "servingWeightG": 401
+      },
+      "courseTitle": "Вторые блюда"
+    },
+    {
+      "id": "rec_chicken_buckwheat",
+      "name": "Курица с гречкой и овощами",
+      "course": "main",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 4,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_buckwheat",
+          "grams": 200
+        },
+        {
+          "productId": "prod_chicken_breast",
+          "grams": 400
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 100
+        },
+        {
+          "productId": "prod_carrot",
+          "grams": 100
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 20
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 1000,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Обжарить курицу с луком и морковью на масле",
+        "Добавить гречку и воду (крупа:вода примерно 1:2)",
+        "Томить под крышкой до готовности крупы"
+      ],
+      "expected": {
+        "totalKcal": 1343,
+        "perServing": {
+          "kcal": 336,
+          "protein": 30.5,
+          "fat": 8.7,
+          "carbs": 35.6,
+          "fiber": 6.1
+        },
+        "per100gCooked": {
+          "kcal": 134,
+          "protein": 12.2,
+          "fat": 3.5,
+          "carbs": 14.2,
+          "fiber": 2.4
+        },
+        "servingWeightG": 250
+      },
+      "courseTitle": "Вторые блюда"
+    },
+    {
+      "id": "rec_pasta_tuna_tomato",
+      "name": "Паста с тунцом и помидорами",
+      "course": "main",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 3,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_pasta_durum",
+          "grams": 240
+        },
+        {
+          "productId": "prod_tuna_canned",
+          "grams": 185
+        },
+        {
+          "productId": "prod_tomato",
+          "grams": 300
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 80
+        },
+        {
+          "productId": "prod_garlic",
+          "grams": 10
+        },
+        {
+          "productId": "prod_oil_olive",
+          "grams": 20
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 1108,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Отварить макароны",
+        "Обжарить лук и чеснок, добавить помидоры и тушить 10 минут",
+        "Добавить тунец и смешать с пастой"
+      ],
+      "expected": {
+        "totalKcal": 1367,
+        "perServing": {
+          "kcal": 456,
+          "protein": 27.3,
+          "fat": 8.7,
+          "carbs": 65.0,
+          "fiber": 4.2
+        },
+        "per100gCooked": {
+          "kcal": 123,
+          "protein": 7.4,
+          "fat": 2.4,
+          "carbs": 17.6,
+          "fiber": 1.1
+        },
+        "servingWeightG": 369
+      },
+      "courseTitle": "Вторые блюда"
+    },
+    {
+      "id": "rec_salmon_potato_broccoli",
+      "name": "Запечённый лосось с картофелем и брокколи",
+      "course": "main",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 3,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_salmon",
+          "grams": 450
+        },
+        {
+          "productId": "prod_potato",
+          "grams": 600
+        },
+        {
+          "productId": "prod_broccoli",
+          "grams": 300
+        },
+        {
+          "productId": "prod_oil_olive",
+          "grams": 15
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 1162,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Нарезать картофель дольками, смазать маслом, запекать 15 минут при 200 °C",
+        "Добавить лосось и брокколи, запекать ещё 15-20 минут"
+      ],
+      "expected": {
+        "totalKcal": 1599,
+        "perServing": {
+          "kcal": 533,
+          "protein": 36.8,
+          "fat": 25.7,
+          "carbs": 39.6,
+          "fiber": 6.6
+        },
+        "per100gCooked": {
+          "kcal": 138,
+          "protein": 9.5,
+          "fat": 6.6,
+          "carbs": 10.2,
+          "fiber": 1.7
+        },
+        "servingWeightG": 387
+      },
+      "courseTitle": "Вторые блюда"
+    },
+    {
+      "id": "rec_beef_stew_potato",
+      "name": "Тушёная говядина с картофелем",
+      "course": "main",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 4,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_beef_lean",
+          "grams": 500
+        },
+        {
+          "productId": "prod_potato",
+          "grams": 600
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 100
+        },
+        {
+          "productId": "prod_carrot",
+          "grams": 100
+        },
+        {
+          "productId": "prod_tomato",
+          "grams": 150
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 20
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 1250,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Обжарить говядину кусочками",
+        "Добавить лук, морковь, помидор и немного воды",
+        "Тушить около 1,5 часа, за 30 минут до конца добавить картофель"
+      ],
+      "expected": {
+        "totalKcal": 1499,
+        "perServing": {
+          "kcal": 375,
+          "protein": 30.3,
+          "fat": 14.5,
+          "carbs": 30.3,
+          "fiber": 4.5
+        },
+        "per100gCooked": {
+          "kcal": 120,
+          "protein": 9.7,
+          "fat": 4.6,
+          "carbs": 9.7,
+          "fiber": 1.5
+        },
+        "servingWeightG": 312
+      },
+      "courseTitle": "Вторые блюда"
+    },
+    {
+      "id": "rec_veg_ragout_beans",
+      "name": "Овощное рагу с фасолью",
+      "course": "main",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 4,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_beans_white",
+          "grams": 200
+        },
+        {
+          "productId": "prod_zucchini",
+          "grams": 400
+        },
+        {
+          "productId": "prod_pepper_bell",
+          "grams": 200
+        },
+        {
+          "productId": "prod_tomato",
+          "grams": 300
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 100
+        },
+        {
+          "productId": "prod_carrot",
+          "grams": 100
+        },
+        {
+          "productId": "prod_garlic",
+          "grams": 10
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 25
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 1484,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Отварить фасоль до мягкости",
+        "Обжарить лук и морковь, добавить кабачок, перец, помидоры и чеснок",
+        "Тушить 15 минут и смешать с фасолью"
+      ],
+      "expected": {
+        "totalKcal": 1177,
+        "perServing": {
+          "kcal": 294,
+          "protein": 14.8,
+          "fat": 7.3,
+          "carbs": 44.2,
+          "fiber": 11.6
+        },
+        "per100gCooked": {
+          "kcal": 79,
+          "protein": 4.0,
+          "fat": 2.0,
+          "carbs": 11.9,
+          "fiber": 3.1
+        },
+        "servingWeightG": 371
+      },
+      "courseTitle": "Вторые блюда"
+    },
+    {
+      "id": "rec_turkey_meatballs_tomato",
+      "name": "Тефтели из индейки в томатном соусе",
+      "course": "main",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 4,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_turkey_fillet",
+          "grams": 500
+        },
+        {
+          "productId": "prod_rice_white",
+          "grams": 60
+        },
+        {
+          "productId": "prod_onion",
+          "grams": 80
+        },
+        {
+          "productId": "prod_egg",
+          "grams": 50
+        },
+        {
+          "productId": "prod_tomato",
+          "grams": 200
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 15
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 854,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Пропустить филе и лук через мясорубку, добавить яйцо и сырой рис",
+        "Сформировать тефтели и обжарить на масле",
+        "Залить нарезанными помидорами и тушить 25-30 минут"
+      ],
+      "expected": {
+        "totalKcal": 1066,
+        "perServing": {
+          "kcal": 267,
+          "protein": 33.0,
+          "fat": 7.2,
+          "carbs": 15.6,
+          "fiber": 1.2
+        },
+        "per100gCooked": {
+          "kcal": 125,
+          "protein": 15.5,
+          "fat": 3.4,
+          "carbs": 7.3,
+          "fiber": 0.6
+        },
+        "servingWeightG": 214
+      },
+      "courseTitle": "Вторые блюда"
+    },
+    {
+      "id": "rec_side_buckwheat",
+      "name": "Гречка отварная",
+      "course": "side",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_buckwheat",
+          "grams": 80
+        },
+        {
+          "productId": "prod_butter_825",
+          "grams": 5
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 205,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Промыть гречку, залить водой (1:2), варить 15-20 минут",
+        "Добавить масло"
+      ],
+      "expected": {
+        "totalKcal": 288,
+        "perServing": {
+          "kcal": 288,
+          "protein": 10.1,
+          "fat": 6.8,
+          "carbs": 49.7,
+          "fiber": 8.0
+        },
+        "per100gCooked": {
+          "kcal": 140,
+          "protein": 4.9,
+          "fat": 3.3,
+          "carbs": 24.3,
+          "fiber": 3.9
+        },
+        "servingWeightG": 205
+      },
+      "courseTitle": "Гарниры"
+    },
+    {
+      "id": "rec_side_rice",
+      "name": "Рис отварной",
+      "course": "side",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_rice_white",
+          "grams": 70
+        },
+        {
+          "productId": "prod_butter_825",
+          "grams": 5
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 194,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Промыть рис, варить в воде (1:2) до готовности",
+        "Добавить масло"
+      ],
+      "expected": {
+        "totalKcal": 282,
+        "perServing": {
+          "kcal": 282,
+          "protein": 4.9,
+          "fat": 4.7,
+          "carbs": 54.6,
+          "fiber": 0.9
+        },
+        "per100gCooked": {
+          "kcal": 146,
+          "protein": 2.5,
+          "fat": 2.4,
+          "carbs": 28.2,
+          "fiber": 0.5
+        },
+        "servingWeightG": 194
+      },
+      "courseTitle": "Гарниры"
+    },
+    {
+      "id": "rec_side_mashed_potato",
+      "name": "Картофельное пюре",
+      "course": "side",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 2,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_potato",
+          "grams": 300
+        },
+        {
+          "productId": "prod_milk_25",
+          "grams": 60
+        },
+        {
+          "productId": "prod_butter_825",
+          "grams": 15
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 375,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Отварить картофель до мягкости",
+        "Размять с тёплым молоком и маслом"
+      ],
+      "expected": {
+        "totalKcal": 374,
+        "perServing": {
+          "kcal": 187,
+          "protein": 3.9,
+          "fat": 7.5,
+          "carbs": 26.2,
+          "fiber": 3.0
+        },
+        "per100gCooked": {
+          "kcal": 100,
+          "protein": 2.1,
+          "fat": 4.0,
+          "carbs": 14.0,
+          "fiber": 1.6
+        },
+        "servingWeightG": 188
+      },
+      "courseTitle": "Гарниры"
+    },
+    {
+      "id": "rec_snack_tvorog_blueberry",
+      "name": "Творог с черникой и мёдом",
+      "course": "snack",
+      "mealSlots": [
+        "snack_1",
+        "snack_2"
+      ],
+      "servings": 1,
+      "mvpCore": true,
+      "ingredients": [
+        {
+          "productId": "prod_tvorog_5",
+          "grams": 150
+        },
+        {
+          "productId": "prod_blueberry",
+          "grams": 60
+        },
+        {
+          "productId": "prod_honey",
+          "grams": 10
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 220,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Смешать творог с ягодами и полить мёдом"
+      ],
+      "expected": {
+        "totalKcal": 246,
+        "perServing": {
+          "kcal": 246,
+          "protein": 26.0,
+          "fat": 7.7,
+          "carbs": 19.6,
+          "fiber": 1.5
+        },
+        "per100gCooked": {
+          "kcal": 112,
+          "protein": 11.8,
+          "fat": 3.5,
+          "carbs": 8.9,
+          "fiber": 0.7
+        },
+        "servingWeightG": 220
+      },
+      "courseTitle": "Перекусы"
+    },
+    {
+      "id": "rec_snack_yogurt_apple_walnut",
+      "name": "Йогурт с яблоком и грецкими орехами",
+      "course": "snack",
+      "mealSlots": [
+        "snack_1",
+        "snack_2"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_yogurt_natural_32",
+          "grams": 150
+        },
+        {
+          "productId": "prod_apple",
+          "grams": 100
+        },
+        {
+          "productId": "prod_walnut",
+          "grams": 15
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 265,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Нарезать яблоко, смешать с йогуртом, посыпать орехами"
+      ],
+      "expected": {
+        "totalKcal": 240,
+        "perServing": {
+          "kcal": 240,
+          "protein": 9.3,
+          "fat": 14.8,
+          "carbs": 22.1,
+          "fiber": 3.4
+        },
+        "per100gCooked": {
+          "kcal": 91,
+          "protein": 3.5,
+          "fat": 5.6,
+          "carbs": 8.3,
+          "fiber": 1.3
+        },
+        "servingWeightG": 265
+      },
+      "courseTitle": "Перекусы"
+    },
+    {
+      "id": "rec_snack_carrot_hummus",
+      "name": "Морковь с хумусом",
+      "course": "snack",
+      "mealSlots": [
+        "snack_1",
+        "snack_2"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_carrot",
+          "grams": 120
+        },
+        {
+          "productId": "prod_hummus",
+          "grams": 60
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 180,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Нарезать морковь палочками и подать с хумусом"
+      ],
+      "expected": {
+        "totalKcal": 142,
+        "perServing": {
+          "kcal": 142,
+          "protein": 6.3,
+          "fat": 5.9,
+          "carbs": 17.0,
+          "fiber": 6.5
+        },
+        "per100gCooked": {
+          "kcal": 79,
+          "protein": 3.5,
+          "fat": 3.3,
+          "carbs": 9.4,
+          "fiber": 3.6
+        },
+        "servingWeightG": 180
+      },
+      "courseTitle": "Перекусы"
+    },
+    {
+      "id": "rec_snack_avocado_toast",
+      "name": "Тост с авокадо и яйцом",
+      "course": "snack",
+      "mealSlots": [
+        "snack_1",
+        "snack_2"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_bread_wheat",
+          "grams": 50
+        },
+        {
+          "productId": "prod_avocado",
+          "grams": 60
+        },
+        {
+          "productId": "prod_egg",
+          "grams": 50
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 160,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Сварить яйцо вкрутую, подсушить хлеб",
+        "Размять авокадо, выложить на хлеб, сверху нарезанное яйцо"
+      ],
+      "expected": {
+        "totalKcal": 298,
+        "perServing": {
+          "kcal": 298,
+          "protein": 11.8,
+          "fat": 15.8,
+          "carbs": 30.0,
+          "fiber": 5.5
+        },
+        "per100gCooked": {
+          "kcal": 187,
+          "protein": 7.4,
+          "fat": 9.9,
+          "carbs": 18.7,
+          "fiber": 3.4
+        },
+        "servingWeightG": 160
+      },
+      "courseTitle": "Перекусы"
+    },
+    {
+      "id": "rec_dessert_baked_apple_tvorog",
+      "name": "Запечённые яблоки с творогом",
+      "course": "dessert",
+      "mealSlots": [
+        "snack_1",
+        "snack_2"
+      ],
+      "servings": 2,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_apple",
+          "grams": 360
+        },
+        {
+          "productId": "prod_tvorog_5",
+          "grams": 100
+        },
+        {
+          "productId": "prod_honey",
+          "grams": 20
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 480,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Вырезать у яблок сердцевину",
+        "Начинить творогом, смешанным с мёдом",
+        "Запекать 20-25 минут при 180 °C"
+      ],
+      "expected": {
+        "totalKcal": 369,
+        "perServing": {
+          "kcal": 184,
+          "protein": 9.1,
+          "fat": 2.9,
+          "carbs": 34.3,
+          "fiber": 4.3
+        },
+        "per100gCooked": {
+          "kcal": 77,
+          "protein": 3.8,
+          "fat": 1.2,
+          "carbs": 14.3,
+          "fiber": 1.8
+        },
+        "servingWeightG": 240
+      },
+      "courseTitle": "Десерты"
+    },
+    {
+      "id": "rec_dessert_tvorog_casserole",
+      "name": "Творожная запеканка",
+      "course": "dessert",
+      "mealSlots": [
+        "snack_1",
+        "snack_2"
+      ],
+      "servings": 4,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_tvorog_5",
+          "grams": 500
+        },
+        {
+          "productId": "prod_egg",
+          "grams": 100
+        },
+        {
+          "productId": "prod_flour_wheat",
+          "grams": 40
+        },
+        {
+          "productId": "prod_sugar",
+          "grams": 40
+        },
+        {
+          "productId": "prod_sour_cream_15",
+          "grams": 50
+        },
+        {
+          "productId": "prod_butter_825",
+          "grams": 10
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 740,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Смешать творог, яйца, муку, сахар и сметану",
+        "Выложить в форму, смазанную маслом",
+        "Запекать 35-40 минут при 180 °C"
+      ],
+      "expected": {
+        "totalKcal": 1207,
+        "perServing": {
+          "kcal": 302,
+          "protein": 25.8,
+          "fat": 13.0,
+          "carbs": 19.8,
+          "fiber": 0.3
+        },
+        "per100gCooked": {
+          "kcal": 163,
+          "protein": 14.0,
+          "fat": 7.1,
+          "carbs": 10.7,
+          "fiber": 0.2
+        },
+        "servingWeightG": 185
+      },
+      "courseTitle": "Десерты"
+    },
+    {
+      "id": "rec_breakfast_toast_chocolate_banana",
+      "name": "Тост с шоколадом и бананом",
+      "course": "breakfast",
+      "mealSlots": [
+        "breakfast"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_baton",
+          "grams": 50
+        },
+        {
+          "productId": "prod_chocolate_dark",
+          "grams": 15
+        },
+        {
+          "productId": "prod_banana",
+          "grams": 60
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 125,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Подсушить ломтик батона",
+        "Выложить ломтики банана и поломанный шоколад, прогреть 1-2 минуты, чтобы шоколад подтаял"
+      ],
+      "expected": {
+        "totalKcal": 274,
+        "perServing": {
+          "kcal": 274,
+          "protein": 5.6,
+          "fat": 8.0,
+          "carbs": 46.4,
+          "fiber": 4.4
+        },
+        "per100gCooked": {
+          "kcal": 219,
+          "protein": 4.5,
+          "fat": 6.4,
+          "carbs": 37.1,
+          "fiber": 3.6
+        },
+        "servingWeightG": 125
+      },
+      "courseTitle": "Завтраки"
+    },
+    {
+      "id": "rec_snack_croissant_cheese",
+      "name": "Круассан с сыром",
+      "course": "snack",
+      "mealSlots": [
+        "snack_1",
+        "snack_2"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_croissant",
+          "grams": 60
+        },
+        {
+          "productId": "prod_cheese_hard",
+          "grams": 20
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 80,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Разрезать круассан вдоль",
+        "Положить ломтики сыра"
+      ],
+      "expected": {
+        "totalKcal": 316,
+        "perServing": {
+          "kcal": 316,
+          "protein": 9.7,
+          "fat": 18.2,
+          "carbs": 27.6,
+          "fiber": 1.6
+        },
+        "per100gCooked": {
+          "kcal": 394,
+          "protein": 12.1,
+          "fat": 22.7,
+          "carbs": 34.5,
+          "fiber": 1.9
+        },
+        "servingWeightG": 80
+      },
+      "courseTitle": "Перекусы"
+    },
+    {
+      "id": "rec_snack_tvorog_zefir",
+      "name": "Творог с зефиром",
+      "course": "snack",
+      "mealSlots": [
+        "snack_1",
+        "snack_2"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_tvorog_5",
+          "grams": 150
+        },
+        {
+          "productId": "prod_zefir",
+          "grams": 30
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 180,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Нарезать зефир кубиками и смешать с творогом"
+      ],
+      "expected": {
+        "totalKcal": 273,
+        "perServing": {
+          "kcal": 273,
+          "protein": 25.7,
+          "fat": 7.5,
+          "carbs": 26.2,
+          "fiber": 0.0
+        },
+        "per100gCooked": {
+          "kcal": 152,
+          "protein": 14.3,
+          "fat": 4.2,
+          "carbs": 14.5,
+          "fiber": 0.0
+        },
+        "servingWeightG": 180
+      },
+      "courseTitle": "Перекусы"
+    },
+    {
+      "id": "rec_snack_oat_cookie_milk",
+      "name": "Овсяное печенье с молоком",
+      "course": "snack",
+      "mealSlots": [
+        "snack_1",
+        "snack_2"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_cookie_oat",
+          "grams": 40
+        },
+        {
+          "productId": "prod_milk_25",
+          "grams": 200
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 240,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Подать печенье со стаканом молока"
+      ],
+      "expected": {
+        "totalKcal": 279,
+        "perServing": {
+          "kcal": 279,
+          "protein": 8.2,
+          "fat": 10.8,
+          "carbs": 37.8,
+          "fiber": 1.2
+        },
+        "per100gCooked": {
+          "kcal": 116,
+          "protein": 3.4,
+          "fat": 4.5,
+          "carbs": 15.8,
+          "fiber": 0.5
+        },
+        "servingWeightG": 240
+      },
+      "courseTitle": "Перекусы"
+    },
+    {
+      "id": "rec_main_lavash_chicken_roll",
+      "name": "Ролл с курицей в лаваше",
+      "course": "main",
+      "mealSlots": [
+        "lunch",
+        "dinner"
+      ],
+      "servings": 1,
+      "mvpCore": false,
+      "ingredients": [
+        {
+          "productId": "prod_lavash",
+          "grams": 100
+        },
+        {
+          "productId": "prod_chicken_breast",
+          "grams": 120
+        },
+        {
+          "productId": "prod_cabbage_chinese",
+          "grams": 30
+        },
+        {
+          "productId": "prod_cucumber",
+          "grams": 60
+        },
+        {
+          "productId": "prod_tomato",
+          "grams": 60
+        },
+        {
+          "productId": "prod_sour_cream_15",
+          "grams": 20
+        },
+        {
+          "productId": "prod_oil_sunflower",
+          "grams": 5
+        }
+      ],
+      "addedWaterMl": 0,
+      "cookedWeightG": 350,
+      "cookedWeightSource": "estimate",
+      "steps": [
+        "Обжарить нарезанную курицу на масле до готовности",
+        "Нарезать овощи и смешать со сметаной",
+        "Выложить начинку на лаваш, плотно завернуть, при желании подрумянить на сухой сковороде"
+      ],
+      "expected": {
+        "totalKcal": 477,
+        "perServing": {
+          "kcal": 477,
+          "protein": 38.1,
+          "fat": 11.6,
+          "carbs": 53.6,
+          "fiber": 3.5
+        },
+        "per100gCooked": {
+          "kcal": 136,
+          "protein": 10.9,
+          "fat": 3.3,
+          "carbs": 15.3,
+          "fiber": 1.0
+        },
+        "servingWeightG": 350
+      },
+      "courseTitle": "Вторые блюда"
+    }
+  ]
+}
